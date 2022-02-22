@@ -13,6 +13,9 @@
         android:theme="@style/Theme.OnlyFriends"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".UserActivity"
             android:exported="false" />
         <activity
