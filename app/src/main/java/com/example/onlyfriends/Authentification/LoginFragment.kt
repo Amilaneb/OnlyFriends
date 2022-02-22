@@ -1,4 +1,4 @@
-package com.example.onlyfriends
+package com.example.onlyfriends.Authentification
 
 import android.content.Context
 import android.os.Bundle
@@ -21,7 +21,7 @@ class LoginFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        interactor = context as? LoginActivityFragmentInteraction
+        interactor = context as? UserActivityFragmentInteraction
     }
 
     override fun onCreateView(

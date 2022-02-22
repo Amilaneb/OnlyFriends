@@ -1,48 +1,26 @@
 package com.example.onlyfriends
 
-import android.content.ContentValues.TAG
-import android.os.Bundle
-import android.util.Log
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Toast
+import com.example.onlyfriends.Authentification.LoginFragment
+import com.example.onlyfriends.Authentification.RegisterFragment
 import com.example.onlyfriends.databinding.ActivityUserBinding
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 
-
-interface LoginActivityFragmentInteraction{
+interface UserActivityFragmentInteraction{
     fun showLogin()
     fun showRegister()
+    fun makeRequest(email:String?, password: String?, firstName: String?, lastName: String?, isFromLogin: Boolean)
 }
 
-class UserActivity : AppCompatActivity(),  LoginActivityFragmentInteraction {
+class UserActivity : AppCompatActivity(),  UserActivityFragmentInteraction {
     lateinit var binding: ActivityUserBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_user)
 
         binding = ActivityUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference("message")
-
-        myRef.setValue("Hello, World!")
-
-        myRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                val value = dataSnapshot.getValue(String::class.java)
-                Log.d(TAG, "Value is: $value")
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException())
-            }
-        })
 
         val fragment = RegisterFragment()
         supportFragmentManager.beginTransaction().add(R.id.fragmentContainer, fragment).commit()
@@ -58,5 +36,38 @@ class UserActivity : AppCompatActivity(),  LoginActivityFragmentInteraction {
         val registerFragment = RegisterFragment()
         supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, registerFragment)
             .commit()
+    }
+
+    override fun makeRequest(
+        email: String?,
+        password: String?,
+        firstName: String?,
+        lastName: String?,
+        isFromLogin: Boolean
+    ) {
+        if (verifyInformation(email, password, firstName, lastName, isFromLogin)) {
+            listenClick()
+        } else {
+            Toast.makeText(this, getString(R.string.invalidForm), Toast.LENGTH_LONG).show()
+        }
+    }
+    private fun verifyInformation(
+        email: String?,
+        password: String?,
+        firstName: String?,
+        lastName: String?,
+        isFromLogin: Boolean
+    ): Boolean {
+        var verified = (email?.isNotEmpty() == true && password?.count() ?: 0 >= 6)
+        if (!isFromLogin) {
+            verified =
+                verified && (firstName?.isNotEmpty() == true && lastName?.isNotEmpty() == true)
+        }
+        return verified
+    }
+
+    private fun listenClick() {
+        val intent = Intent(this@UserActivity, MainActivity::class.java)
+        startActivity(intent)
     }
 }

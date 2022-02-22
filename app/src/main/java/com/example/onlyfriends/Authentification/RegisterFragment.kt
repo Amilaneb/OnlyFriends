@@ -1,4 +1,4 @@
-package com.example.onlyfriends
+package com.example.onlyfriends.Authentification
 
 import android.content.Context
 import android.os.Bundle
@@ -6,11 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.onlyfriends.UserActivityFragmentInteraction
 import com.example.onlyfriends.databinding.FragmentRegisterBinding
 
 class RegisterFragment : Fragment() {
     lateinit var binding: FragmentRegisterBinding
-    var interactor: LoginActivityFragmentInteraction? = null
+    var interactor: UserActivityFragmentInteraction? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +19,7 @@ class RegisterFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        interactor = context as? LoginActivityFragmentInteraction
+        interactor = context as? UserActivityFragmentInteraction
     }
 
     override fun onCreateView(
