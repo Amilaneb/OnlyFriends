@@ -6,42 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import com.example.onlyfriends.UserActivityFragmentInteraction
 import com.example.onlyfriends.databinding.FragmentLoginBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 
 
 class LoginFragment : Fragment() {
 
     lateinit var binding: FragmentLoginBinding
-    private lateinit var auth: FirebaseAuth;
-    var interactor: LoginActivityFragmentInteraction? = null
+    var interactor: UserActivityFragmentInteraction? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // ...
-        // Initialize Firebase Auth
-        auth = Firebase.auth
-    }
-
-    override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        updateUI(currentUser)
-    }
-
-    private fun updateUI(currentUser: FirebaseUser?) {
-        if(currentUser != null){
-            Toast.makeText(requireActivity(),"You Signed In successfully",Toast.LENGTH_LONG).show();
-
-        }else {
-            Toast.makeText(requireActivity(),"You Didnt signed in",Toast.LENGTH_LONG).show();
-        }
-
     }
 
     override fun onAttach(context: Context) {
@@ -61,6 +36,15 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.noAccountBtn.setOnClickListener {
             interactor?.showRegister()
+        }
+        binding.connectBtn.setOnClickListener{
+            interactor?.makeRequest(
+                binding.email.text.toString(),
+                binding.password.text.toString(),
+                null,
+                null,
+                true
+            )
         }
     }
 }
