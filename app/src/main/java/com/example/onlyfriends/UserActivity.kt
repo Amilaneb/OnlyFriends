@@ -4,19 +4,20 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.onlyfriends.Authentification.LoginFragment
+import com.example.onlyfriends.Authentification.RegisterFragment
 import com.example.onlyfriends.databinding.ActivityUserBinding
 
-interface LoginActivityFragmentInteraction{
+interface UserActivityFragmentInteraction{
     fun showLogin()
     fun showRegister()
     fun makeRequest(email:String?, password: String?, firstName: String?, lastName: String?, isFromLogin: Boolean)
 }
 
-class UserActivity : AppCompatActivity(),  LoginActivityFragmentInteraction {
+class UserActivity : AppCompatActivity(),  UserActivityFragmentInteraction {
     lateinit var binding: ActivityUserBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_user)
 
         binding = ActivityUserBinding.inflate(layoutInflater)
         setContentView(binding.root)

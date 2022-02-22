@@ -3,20 +3,20 @@ package com.example.onlyfriends
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.onlyfriends.databinding.ActivityHomeBinding
+import com.example.onlyfriends.databinding.ActivityLandingBinding
 
-class HomeActivity : AppCompatActivity() {
-    lateinit var binding: ActivityHomeBinding
+class LandingActivity : AppCompatActivity() {
+    lateinit var binding: ActivityLandingBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityHomeBinding.inflate(layoutInflater)
+        binding= ActivityLandingBinding.inflate(layoutInflater)
         setContentView(binding.root)
         listenClick()
     }
 
     private fun listenClick(){
         binding.connectBtn.setOnClickListener {
-            val intent = Intent(this@HomeActivity, UserActivity::class.java)
+            val intent = Intent(this@LandingActivity, UserActivity::class.java)
             startActivity(intent)
         }
     }

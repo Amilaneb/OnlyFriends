@@ -6,8 +6,12 @@
         <entry key="..\:/Users/alexandre.deluc/AndroidStudioProjects/OnlyFriends/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/Users/alexandre.deluc/AndroidStudioProjects/OnlyFriends/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/alexandre.deluc/AndroidStudioProjects/OnlyFriends/app/src/main/res/layout/activity_user.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/alexandre.deluc/AndroidStudioProjects/OnlyFriends/app/src/main/res/layout/cell_account.xml" value="0.536" />
+        <entry key="..\:/Users/alexandre.deluc/AndroidStudioProjects/OnlyFriends/app/src/main/res/layout/fragment_account.xml" value="0.136" />
+        <entry key="..\:/Users/alexandre.deluc/AndroidStudioProjects/OnlyFriends/app/src/main/res/layout/fragment_home.xml" value="0.2418478260869565" />
         <entry key="..\:/Users/alexandre.deluc/AndroidStudioProjects/OnlyFriends/app/src/main/res/layout/fragment_login.xml" value="0.2" />
         <entry key="..\:/Users/alexandre.deluc/AndroidStudioProjects/OnlyFriends/app/src/main/res/layout/fragment_register.xml" value="0.2" />
+        <entry key="..\:/Users/alexandre.deluc/AndroidStudioProjects/OnlyFriends/app/src/main/res/layout/fragment_search.xml" value="0.2418478260869565" />
         <entry key="..\:/Users/alexandre.deluc/AndroidStudioProjects/OnlyFriends/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
       </map>
     </option>
