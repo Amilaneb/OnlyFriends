@@ -36,5 +36,14 @@ class LoginFragment : Fragment() {
         binding.noAccountBtn.setOnClickListener {
             interactor?.showRegister()
         }
+        binding.connectBtn.setOnClickListener{
+            interactor?.makeRequest(
+                binding.email.text.toString(),
+                binding.password.text.toString(),
+                null,
+                null,
+                true
+            )
+        }
     }
 }

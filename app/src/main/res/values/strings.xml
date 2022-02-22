@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">OnlyFriends</string>
+    
+    // Authentification
+    
     <string name="create">Créer un compte</string>
     <string name="connect">Se connecter</string>
     <string name="email">Email</string>
@@ -9,4 +12,14 @@
     <string name="noAccount">Vous n\'avez pas de compte</string>
     <string name="alreadyAccount">Vous avez déja un compte</string>
     <string name="valider">Valider</string>
+    <string name="validForm">Le formulaire est valide</string>
+    <string name="invalidForm">Le formulaire est invalide</string>
+    
+    // Accueil
+    
+    <string name="home">Accueil</string>
+    <string name="search">Rechercher</string>
+    <string name="account">Votre Compte</string>
+    
+    
 </resources>

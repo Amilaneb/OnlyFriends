@@ -89,7 +89,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/signUpBtn"
+        android:id="@+id/validateBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -99,7 +99,7 @@
         app:layout_constraintTop_toBottomOf="@+id/TextInputLayoutPassword" />
 
     <Button
-        android:id="@+id/logInBtn"
+        android:id="@+id/alreadyBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"

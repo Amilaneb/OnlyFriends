@@ -31,8 +31,17 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.logInBtn.setOnClickListener {
+        binding.alreadyBtn.setOnClickListener {
             interactor?.showLogin()
+        }
+        binding.validateBtn.setOnClickListener{
+            interactor?.makeRequest(
+                binding.email.text.toString(),
+                binding.password.text.toString(),
+                null,
+                null,
+                true
+            )
         }
     }
 }
