@@ -1,4 +1,4 @@
-package com.example.onlyfriends.Authentification
+package com.example.onlyfriends
 
 import android.content.Context
 import android.os.Bundle
@@ -6,12 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.onlyfriends.UserActivityFragmentInteraction
-import com.example.onlyfriends.databinding.FragmentRegisterBinding
+import com.example.onlyfriends.databinding.FragmentLoginBinding
 
-class RegisterFragment : Fragment() {
-    lateinit var binding: FragmentRegisterBinding
-    var interactor: UserActivityFragmentInteraction? = null
+
+class LoginFragment : Fragment() {
+
+    lateinit var binding: FragmentLoginBinding
+    var interactor: LoginActivityFragmentInteraction? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,23 +20,23 @@ class RegisterFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        interactor = context as? UserActivityFragmentInteraction
+        interactor = context as? LoginActivityFragmentInteraction
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentRegisterBinding.inflate(inflater, container, false)
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.alreadyBtn.setOnClickListener {
-            interactor?.showLogin()
+        binding.noAccountBtn.setOnClickListener {
+            interactor?.showRegister()
         }
-        binding.validateBtn.setOnClickListener{
+        binding.connectBtn.setOnClickListener{
             interactor?.makeRequest(
                 binding.email.text.toString(),
                 binding.password.text.toString(),
