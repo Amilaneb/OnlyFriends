@@ -33,40 +33,23 @@
             android:id="@+id/firstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/firstanme" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutLastname"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:hintTextColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayoutFirstName"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayoutFirstName"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutFirstName">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/lastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/lastname" />
+            android:hint="@string/username" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayoutFirstName"
         app:layout_constraintStart_toStartOf="@+id/textInputLayoutFirstName"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutLastname">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutFirstName">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:hint="@string/email" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,7 +57,7 @@
         android:id="@+id/TextInputLayoutPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="14dp"
         app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayoutFirstName"
         app:layout_constraintStart_toStartOf="@+id/textInputLayoutFirstName"

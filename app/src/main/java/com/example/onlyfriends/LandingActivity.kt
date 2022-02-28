@@ -3,6 +3,7 @@ package com.example.onlyfriends
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.widget.Toolbar
 import com.example.onlyfriends.databinding.ActivityLandingBinding
 
 class LandingActivity : AppCompatActivity() {
@@ -11,6 +12,7 @@ class LandingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityLandingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         listenClick()
     }
 
