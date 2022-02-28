@@ -30,5 +30,10 @@
     <string name="following">Abonnements</string>
     <string name="subscribe">S\'abonner</string>
 
+    // Add
+
+    <string name="takePicture">Prendre une photo</string>
+    <string name="choisePicture">Ajouter une photo</string>
+
 
 </resources>

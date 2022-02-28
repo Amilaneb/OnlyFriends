@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/cameraImg"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="16dp"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/galeryImg"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginEnd="16dp"
@@ -27,22 +27,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/takePhoto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        android:text="@string/takePicture"
+        app:layout_constraintEnd_toEndOf="@+id/cameraImg"
+        app:layout_constraintStart_toStartOf="@+id/cameraImg"
+        app:layout_constraintTop_toBottomOf="@+id/cameraImg" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/addPhoto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        android:text="@string/choisePicture"
+        app:layout_constraintEnd_toEndOf="@+id/galeryImg"
+        app:layout_constraintStart_toStartOf="@+id/galeryImg"
+        app:layout_constraintTop_toBottomOf="@+id/galeryImg" />
 </androidx.constraintlayout.widget.ConstraintLayout>
