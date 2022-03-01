@@ -1,16 +1,11 @@
 package com.example.onlyfriends
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.onlyfriends.Authentification.LoginFragment
 import com.example.onlyfriends.Authentification.RegisterFragment
 import com.example.onlyfriends.databinding.ActivityUserBinding
-import com.google.firebase.FirebaseApp
-
-import com.google.firebase.FirebaseOptions
-import java.io.FileInputStream
 
 
 interface UserActivityFragmentInteraction{
