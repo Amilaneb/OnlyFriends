@@ -1,21 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profil"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        app:civ_border_width= "1dp"
+        android:id="@+id/letftPicture"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <TextView
-        android:id="@+id/titleRegister"
+        android:id="@+id/nbPublication"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/account"
-        android:textSize="34sp"
+        android:layout_marginEnd="42dp"
+        android:text="TextView"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/nbFollowers"
+        app:layout_constraintTop_toTopOf="@+id/nbFollowers" />
+
+    <TextView
+        android:id="@+id/publication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/pictures"
+        app:layout_constraintEnd_toEndOf="@+id/nbPublication"
+        app:layout_constraintStart_toStartOf="@+id/nbPublication"
+        app:layout_constraintTop_toBottomOf="@+id/nbPublication" />
+
+    <TextView
+        android:id="@+id/nbFollowers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.597"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/letftPicture" />
 
+    <TextView
+        android:id="@+id/followers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/followers"
+        app:layout_constraintEnd_toEndOf="@+id/nbFollowers"
+        app:layout_constraintStart_toStartOf="@+id/nbFollowers"
+        app:layout_constraintTop_toBottomOf="@+id/nbFollowers" />
+
+    <TextView
+        android:id="@+id/nbFollowing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="TextView"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/nbFollowers"
+        app:layout_constraintTop_toTopOf="@+id/nbFollowers" />
+
+    <TextView
+        android:id="@+id/following"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/following"
+        app:layout_constraintEnd_toEndOf="@+id/nbFollowing"
+        app:layout_constraintStart_toStartOf="@+id/nbFollowing"
+        app:layout_constraintTop_toBottomOf="@+id/nbFollowing" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/letftPicture"
+        app:layout_constraintTop_toBottomOf="@+id/letftPicture" />
+
+    <Button
+        android:id="@+id/subscribeBtn"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/subscribe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="596dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subscribeBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
