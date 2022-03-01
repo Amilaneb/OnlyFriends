@@ -1,27 +1,35 @@
 package com.example.onlyfriends
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.onlyfriends.Authentification.LoginFragment
+import com.example.onlyfriends.Authentification.RegisterFragment
 import com.example.onlyfriends.databinding.ActivityUserBinding
+import com.google.firebase.FirebaseApp
 
-interface LoginActivityFragmentInteraction{
+import com.google.firebase.FirebaseOptions
+import java.io.FileInputStream
+
+
+interface UserActivityFragmentInteraction{
     fun showLogin()
     fun showRegister()
     fun makeRequest(email:String?, password: String?, firstName: String?, lastName: String?, isFromLogin: Boolean)
 }
 
-class UserActivity : AppCompatActivity(),  LoginActivityFragmentInteraction {
-    lateinit var binding: ActivityUserBinding
+class UserActivity : AppCompatActivity(),  UserActivityFragmentInteraction {
+    private lateinit var binding: ActivityUserBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_user)
 
         binding = ActivityUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val fragment = RegisterFragment()
+
+        val fragment = LoginFragment()
         supportFragmentManager.beginTransaction().add(R.id.fragmentContainer, fragment).commit()
     }
 
@@ -45,7 +53,8 @@ class UserActivity : AppCompatActivity(),  LoginActivityFragmentInteraction {
         isFromLogin: Boolean
     ) {
         if (verifyInformation(email, password, firstName, lastName, isFromLogin)) {
-            listenClick()
+            Toast.makeText(this, getString(R.string.validForm), Toast.LENGTH_LONG).show()
+
         } else {
             Toast.makeText(this, getString(R.string.invalidForm), Toast.LENGTH_LONG).show()
         }
@@ -65,8 +74,4 @@ class UserActivity : AppCompatActivity(),  LoginActivityFragmentInteraction {
         return verified
     }
 
-    private fun listenClick() {
-        val intent = Intent(this@UserActivity, MainActivity::class.java)
-        startActivity(intent)
-    }
 }
