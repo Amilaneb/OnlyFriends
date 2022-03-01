@@ -34,6 +34,7 @@
 
     <string name="takePicture">Prendre une photo</string>
     <string name="choisePicture">Ajouter une photo</string>
+    <string name="logout">Se déconnecter</string>
 
 
 </resources>

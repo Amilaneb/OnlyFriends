@@ -5,15 +5,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.onlyfriends.Network.Image
 import com.example.onlyfriends.R
 import com.example.onlyfriends.databinding.CellAccountBinding
 import com.squareup.picasso.Picasso
 
-class AccountAdapter(): RecyclerView.Adapter<AccountAdapter.AccountViewHolder>() {
+class AccountAdapter(val items: List<Image>): RecyclerView.Adapter<AccountAdapter.AccountViewHolder>() {
     class AccountViewHolder(binding: CellAccountBinding): RecyclerView.ViewHolder(binding.root) {
         val imgLeft: ImageView = binding.letftPicture
-        val imgCenter: ImageView = binding.centerPicture
-        val imgRight: ImageView = binding.rightPicture
         val layout: CardView = binding.root
     }
 
@@ -23,10 +22,17 @@ class AccountAdapter(): RecyclerView.Adapter<AccountAdapter.AccountViewHolder>()
     }
 
     override fun onBindViewHolder(holder: AccountViewHolder, position: Int) {
+        val item = items[position]
+        Picasso.get()
+            .load(item.getUrl())
+            .placeholder(R.drawable.logo)
+            .into(holder.imgLeft)
+
+
 
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return items.size
     }
 }

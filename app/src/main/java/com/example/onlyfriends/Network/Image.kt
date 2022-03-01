@@ -1,10 +1,14 @@
 package com.example.onlyfriends.Network
 
-import android.widget.ImageView
-
-class Image(
-    val imageLeft: ImageView,
-    val imageCenter: ImageView,
-    val imageRight: ImageView
-) {
+class Image (
+    val image: List<String>
+        ){
+    fun getUrl(): String? {
+        return if(image.isNotEmpty() && image.first().isNotEmpty()) {
+            image.first()
+        }
+        else{
+            null
+        }
+    }
 }

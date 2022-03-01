@@ -1,19 +1,15 @@
 package com.example.onlyfriends
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
-import com.example.onlyfriends.Authentification.LoginFragment
-import com.example.onlyfriends.Authentification.RegisterFragment
 import com.example.onlyfriends.Navigation.AccountFragment
-import com.example.onlyfriends.Navigation.AddFragment
 import com.example.onlyfriends.Navigation.HomeFragment
 import com.example.onlyfriends.Navigation.SearchFragment
 import com.example.onlyfriends.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainActivity : AppCompatActivity() {
@@ -32,14 +28,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val addFragment = AddFragment()
-        when (item.itemId) {
-            R.id.add -> {
-                supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, addFragment).commit()
+        return when(item.itemId){
+            R.id.camera -> {
+                val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                startActivityForResult(intent, 10)
                 true
+                return true
             }
+            R.id.gallery -> {
+                chooseImageGallery()
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
-        return super.onOptionsItemSelected(item)
     }
 
     private fun NavigateTo(){
@@ -64,5 +65,14 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+    }
+    private fun chooseImageGallery() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, IMAGE_CHOOSE)
+    }
+
+    companion object {
+        private val IMAGE_CHOOSE = 1000;
     }
 }
