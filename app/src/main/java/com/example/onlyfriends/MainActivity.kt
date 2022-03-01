@@ -1,7 +1,7 @@
 package com.example.onlyfriends
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.onlyfriends.Navigation.AccountFragment
 import com.example.onlyfriends.Navigation.HomeFragment
 import com.example.onlyfriends.Navigation.SearchFragment
@@ -15,14 +15,13 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        NavigateTo()
-    }
-
-    private fun NavigateTo(){
         val homeFragment = HomeFragment()
         val searchFragment = SearchFragment()
         val accountFragment =  AccountFragment()
         supportFragmentManager.beginTransaction().add(R.id.fragmentContainer, homeFragment).commit()
+
+
+
         binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
